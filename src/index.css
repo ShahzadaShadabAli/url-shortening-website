@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'poppins';
+    src: url('../public/fonts/Poppins-Regular.ttf') format('truetype'),
+}
+
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../public/fonts/Poppins-Bold.ttf') format('truetype'),
+}
+
+.poppins {
+    font-family: "Poppins";
+    font-weight: 500;
+}
+
+.poppins-bold {
+    font-family: "poppins-bold";
+}
+
+.bg-button {
+    background-color: hsl(180, 66%, 49%);
+}
+
+
+.neutral-text {
+    color: hsl(180, 66%, 49%);
+}
+
+.primary-hover:hover {
+    color: hsl(180, 66%, 49%);
+}
+.bg-button:hover {
+    background-color: hsla(180, 66%, 49%, 0.6);
+}
+
+.primary-text {
+    color: hsl(255, 11%, 22%);
+}
+
+.footer-bg {
+    background-color: hsl(260, 8%, 14%); 
+}
+
+.primary-bg {
+    background-color: hsl(257, 27%, 26%);
+}
+
+.secondary-text {
+    color: hsl(257, 7%, 63%);
+}
+
+
+.secondary-bg {
+    background-color: hsla(0, 0%, 75%, 0.219);
+}
+
+.card-box {
+    position: relative;
+}
+
+.card-box::before {
+    content: '';
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background-color: hsl(180, 66%, 49%);
+    transform: translateY(-50%);
+    top: 60%;
+}
+
+.collapser {
+    background: hsl(257, 27%, 26%);
+    transition: all 0.3s ease-in;
+}
+
+@media not all and (min-width: 768px) {
+    .card-box::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        background-color: hsl(180, 66%, 49%);
+        transform: translateY(-50%);
+        left: 49%;
+    }
+}
