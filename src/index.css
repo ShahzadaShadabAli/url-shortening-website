@@ -36,7 +36,7 @@
     color: hsl(180, 66%, 49%);
 }
 .bg-button:hover {
-    background-color: hsla(180, 66%, 49%, 0.6);
+    background-color: #9ce2e1;
 }
 
 .primary-text {

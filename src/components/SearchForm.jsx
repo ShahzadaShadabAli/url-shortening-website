@@ -4,6 +4,7 @@ const SearchForm = () => {
 
   const [inputVal, setInputVal] = useState('')
   const [links, setLinks] = useState(JSON.parse(localStorage.getItem('links')) || [])
+  const [emptyErr, setEmptyErr] = useState(false)
 
   const sentToLocalStorage = (link) => {
     setLinks(JSON.parse(localStorage.getItem('links')))
@@ -19,6 +20,8 @@ const SearchForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!inputVal === '') {
+      setEmptyErr(false)
     
     try {
       const res = await fetch("https://thingproxy.freeboard.io/fetch/https://cleanuri.com/api/v1/shorten", {
@@ -39,6 +42,9 @@ const SearchForm = () => {
     } catch (error) {
       console.log(error)
     }
+    } else {
+      setEmptyErr(true)
+    }
   }
 
   const handleCopy = (link, e) => {
@@ -55,11 +61,16 @@ const SearchForm = () => {
 
   return (
     <div className="w-[85%]  mx-auto relative -top-24">
-      <div className='rounded-xl max-md:py-5  py-14  primary-bg search relative'>
+      <div className='rounded-xl max-md:py-5  lg:h-48 primary-bg search relative'>
       <img src="/images/bg-shorten-desktop.svg" className='absolute w-full h-full object-cover rounded-xl top-0 left-0' alt="" />
-    <form onSubmit={handleSubmit} className='z-10 w-full h-full flex items-center justify-center gap-6 max-md:gap-3 max-md:flex-col'>
-    <input type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} className='z-10 w-[65%] max-sm:w-[90%] rounded-lg h-16 ps-8 poppins text-lg' placeholder='Shorten a link here...' />
+    <form onSubmit={handleSubmit} className='z-10 w-full h-full flex items-center justify-center'>
+    <div className="w-full flex justify-center max-md:items-center gap-6 max-md:gap-3 max-md:flex-col">
+    <div className='z-10 w-[65%] max-sm:w-[90%]'>
+    <input type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} className={`w-full mb-1  rounded-lg h-16 ps-8 poppins text-lg ${emptyErr ? "placeholder:text-rose-300 border-[3px] border-rose-500 outline-none" : ""}`} placeholder='Shorten a link here...' />
+    {emptyErr && <i className="poppins text-sm text-rose-500">Please add a link</i>}
+    </div>
     <button className='bg-button h-16 px-10 poppins text-lg rounded-lg text-white z-10 max-md:w-[65%] max-sm:w-[90%]'>Get Started</button>
+    </div>
     </form>
     </div>
     <div className="w-full flex flex-col mt-5 gap-4">

@@ -5,8 +5,8 @@ const Hero = () => {
   return (
     <div className='w-[85%] max-sm:w-[95%] mx-auto px-7 flex flex-col min-h-screen relative'>
       <Navbar />
-      <div className="flex mt-28 max-md:my-0 justify-between max-md:flex-col-reverse">
-        <div className="flex flex-col gap-8 max-md:mb-44 max-sm:mb-24">
+      <div className="flex max-md:my-0 justify-between max-md:flex-col-reverse">
+        <div className="flex max-md:mt-32 flex-col gap-8  max-sm:mb-24 lg:absolute top-[50%] -translate-y-[50%]">
           <div className='w-[36rem] max-lg:w-[28rem] max-md:w-auto max-md:mt-10 max-md:text-center'>
           <h1 className='text-[4.8rem] max-sm:text-[2.5rem] max-lg:text-5xl leading-[5.5rem] max-lg:leading-[3.2rem] max-sm:leading-[2.8rem] max-lg:mb-4 poppins-bold primary-text tracking-tight'>More than just <br /> shorter links</h1>
           <p className="poppins text-[20px] secondary-text max-lg:text-lg">

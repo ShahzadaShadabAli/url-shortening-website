@@ -25,9 +25,9 @@ const Navbar = () => {
       <div className="flex w-[28rem] justify-between items-center">
       <h1 className='poppins-bold text-4xl primary-text'>Shortly</h1>
       <ul className='flex gap-7 secondary-text poppins mr-3 max-md:hidden cursor-pointer'>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>Resources</li>
+        <li className='hover:text-black transition-all'>Features</li>
+        <li className='hover:text-black transition-all'>Pricing</li>
+        <li className='hover:text-black transition-all'>Resources</li>
       </ul>
       </div>
       <div className="flex gap-7 items-center poppins max-md:hidden">
